@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  become: true
+  vars_files:
+    - roles/nexus/vars/main.yml
+  handlers:
+    - include: roles/nexus/handlers/main.yml
+  roles:
+    - java
+    - nexus
