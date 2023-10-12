@@ -5,21 +5,6 @@
       force_apt_get: yes 
       cache_valid_time: 3600
   
-  - name: Install the Ansible
-    apt:
-      name: ansible
-      state: present
-  
-  - name: Install the python3
-    apt:
-      name: python3
-      state: present
-    
-  - name: Install the pip3
-    apt:
-      name: python3-pip
-      state: present
-  
   - name: Install the php
     apt:
       name: php
@@ -68,7 +53,7 @@
       path: "{{ nexus_dir }}"
       owner: "{{ nexus_user }}"
       group: "{{ nexus_group }}"
-      mode: "u+rwx,g+rx,o=rx"
+      mode: "0755"
       recurse: yes
       state: directory
   
@@ -77,7 +62,7 @@
       path: "{{ sonar_type_dir }}"
       owner: "{{ nexus_user }}"
       group: "{{ nexus_group }}"
-      mode: "u+rwx,g+rx,o=rx"
+      mode: "0755"
       recurse: yes
       state: directory
     
